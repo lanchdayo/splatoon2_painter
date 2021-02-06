@@ -1,0 +1,14 @@
+version: "3"
+services:
+  app:
+    container_name: "splatoon2_painter"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER_UID: 1000
+        USER_GID: 1000
+    volumes:
+      - ..:/workspace:cached
+      - ~/.gitconfig:/root/.gitconfig
+    command: sleep infinity
